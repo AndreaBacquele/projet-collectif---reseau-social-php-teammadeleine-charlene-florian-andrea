@@ -83,7 +83,7 @@
                 // NB: à chaque tour du while, la variable post ci dessous reçois les informations du post suivant.
                 while ($post = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
                     ?>
                     <article>
                         <h3>
