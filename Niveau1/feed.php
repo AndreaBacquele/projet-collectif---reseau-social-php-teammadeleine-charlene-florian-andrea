@@ -59,7 +59,7 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message des utilisatrices
-                        auxquel est abonnée l'utilisatrice <?php echo $user['alias'] ?>
+                        auxquel est abonnée l'utilisatrice <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
                     </p>
 
@@ -100,7 +100,7 @@
                 ?>        
                 <?php 
                 while ($post = $lesInformations->fetch_assoc()){
-                    echo "<pre>" . print_r($post, 1) . "</pre>";
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
                     include 'message.php';   
                     }
                 ?>
