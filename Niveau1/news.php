@@ -93,9 +93,18 @@
                         <div>
                             <p><?php echo $post['content'] ?></p>
                         </div>
+                        <?php 
+                            $tab = explode(",",$post['taglist'])
+                        ?>
                         <footer>
                             <small>♥ <?php echo $post['like_number'] ?> </small>
-                            <a href="">#<?php echo $post['taglist'] ?></a>,
+                            <?php
+                            for ($i=0; $i < count($tab); $i++) { 
+                                ?>
+                                <a href="">#<?php echo $tab[$i] ?></a>,
+                            <?php
+                            }
+                            ?>
                         </footer>
                     </article>
                     <?php
