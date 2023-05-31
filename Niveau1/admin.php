@@ -52,7 +52,7 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
                         <h3><?php echo $tag['label'] ?></h3>
@@ -88,7 +88,7 @@
                     // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3><?php echo $tag['alias'] ?></h3>
+                        <h3><a href="wall.php?user_id=<?php echo $tag['id']?>"><?php echo $tag['alias'] ?></a></h3>
                         <p>Id :<?php echo $tag['id'] ?></p>
                         <nav>
                             <a href="wall.php?user_id=<?php echo $tag['id']?>">Mur</a>
