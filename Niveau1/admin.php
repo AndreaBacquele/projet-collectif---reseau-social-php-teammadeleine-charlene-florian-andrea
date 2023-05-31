@@ -27,12 +27,7 @@
         </header>
 
         <?php
-        /**
-         * Etape 1: Ouvrir une connexion avec la base de donnée.
-         */
-        // on va en avoir besoin pour la suite
         include 'config.php';
-        //verification
         
         ?>
         <div id="wrapper" class='admin'>
@@ -57,13 +52,13 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
                         <h3><?php echo $tag['label'] ?></h3>
-                        <p>id : <?php echo $tag['id'] ?></p>
+                        <p>Id : <?php echo $tag['id'] ?></p>
                         <nav>
-                            <a href="tags.php?tag_id=<?php echo $tag['id'] ?>">Messages</a>
+                            <a href="tags.php?tag_id=<?php $tag['id']?>">Messages</a>
                         </nav>
                     </article>
                 <?php } ?>
@@ -90,17 +85,17 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
                         <h3><?php echo $tag['alias'] ?></h3>
-                        <p>id : <?php echo $tag['id'] ?></p>
+                        <p>Id :<?php echo $tag['id'] ?></p>
                         <nav>
-                            <a href="wall.php?user_id=<?php echo $tag['id'] ?>">Mur</a>
-                            | <a href="feed.php?user_id=<?php echo $tag['id'] ?>">Flux</a>
-                            | <a href="settings.php?user_id=<?php echo $tag['id'] ?>">Paramètres</a>
-                            | <a href="followers.php?user_id=<?php echo $tag['id'] ?>">Suiveurs</a>
-                            | <a href="subscriptions.php?user_id=<?php echo $tag['id'] ?>">Abonnements</a>
+                            <a href="wall.php?user_id=<?php echo $tag['id']?>">Mur</a>
+                            | <a href="feed.php?user_id=<?php echo $tag['id']?>">Flux</a>
+                            | <a href="settings.php?user_id=<?php echo $tag['id']?>">Paramètres</a>
+                            | <a href="followers.php?user_id=<?php echo $tag['id']?>">Suiveurs</a>
+                            | <a href="subscriptions.php?user_id=<?php echo $tag['id']?>">Abonnements</a>
                         </nav>
                     </article>
                 <?php } ?>
