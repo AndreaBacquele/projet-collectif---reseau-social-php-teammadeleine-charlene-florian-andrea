@@ -55,15 +55,8 @@
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 
                 while ($tag = $lesInformations->fetch_assoc()){
                     // echo "<pre>" . print_r($tag, 1) . "</pre>";
-                ?>
-                
-                <article>
-                    <img src="user.jpg" alt="blason"/>
-                    <h3><?php echo $tag['alias'] ?></h3>
-                    <p><?php echo $tag['id'] ?></p>                    
-                </article>
-                <?php
-                    }
+                    include 'infoListe.php';
+                }
                 ?>
             </main>
         </div>
