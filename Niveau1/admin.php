@@ -10,7 +10,6 @@
         <header>
             <?php
             include 'config.php';
-            
             ?>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
