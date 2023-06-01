@@ -7,7 +7,7 @@
         <?php echo $post['content'] ?>
     </div>
     <?php 
-        $tab = explode(",",$post['taglist'])
+        $tab = explode(",",$post['taglist']);
     ?>                                            
     <footer>
         <small>♥ <?php echo $post['like_number'] ?></small>

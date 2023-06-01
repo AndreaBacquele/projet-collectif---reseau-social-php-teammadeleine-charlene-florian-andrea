@@ -8,12 +8,30 @@
     </head>
     <body>
         <header>
+            <?php
+            include 'config.php';
+            
+            ?>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
                 <a href="feed.php?user_id=5">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
+                <?php 
+                    $allTheTags = "SELECT * FROM `tags` LIMIT 50";
+                    $lesTags = $mysqli->query($allTheTags);
+
+                    while ($list = $lesTags->fetch_assoc())
+                {
+                    // echo "<pre>" . print_r($list, 1) . "</pre>";
+                    ?>
+                    <ul>
+                        <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
+                    </ul>
+                    <?php
+                }
+                ?>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
@@ -26,10 +44,7 @@
             </nav>
         </header>
 
-        <?php
-        include 'config.php';
         
-        ?>
         <div id="wrapper" class='admin'>
             <aside>
                 <h2>Mots-clés</h2>
@@ -52,7 +67,7 @@
                  */
                 while ($tag = $lesInformations->fetch_assoc())
                 {
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
                         <h3><?php echo $tag['label'] ?></h3>
