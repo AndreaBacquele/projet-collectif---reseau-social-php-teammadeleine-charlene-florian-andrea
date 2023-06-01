@@ -239,6 +239,7 @@ body>header #tags #nomtag {
     text-align: center;
     padding: 2em 0;
     width: 100%;
+    
 }
 
 body > header #tags ul li {
@@ -248,7 +249,7 @@ body > header #tags ul li {
 
 body>header #tags ul li a {
     display: block;
-    border: none;
+    border-left: 1px solid #99b;
 }
 
 body>header #tags ul li a:focus {
