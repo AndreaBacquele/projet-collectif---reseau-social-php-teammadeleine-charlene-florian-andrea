@@ -223,7 +223,7 @@ pre {
     color: #aaa;
 }
 
-body>header #menu ul {
+body>header #tags ul {
     display: none;
     position: absolute;
     padding: 0;
@@ -234,14 +234,14 @@ body>header #menu ul {
     z-index: 1;
 }
 
-body>header #tags>#nomtag {
+body>header #tags #nomtag {
     display: block;
     text-align: center;
     padding: 2em 0;
     width: 100%;
 }
 
-body>header #tags ul li #nomtag {
+body>header #tags ul li {
     display: block;
     width: 10em;
     padding: 1em;
