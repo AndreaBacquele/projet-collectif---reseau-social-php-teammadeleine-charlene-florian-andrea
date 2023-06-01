@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
+    <img src="resoc.jpg" alt="Logo de notre réseau social"/>
     <?php include 'header.php';
     ?>
         <div id="wrapper">
