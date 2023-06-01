@@ -59,7 +59,7 @@
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message des utilisatrices
-                        auxquel est abonnée l'utilisatrice <?php echo $user['alias'] ?>
+                        auxquel est abonnée l'utilisatrice <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
                     </p>
 
@@ -99,36 +99,9 @@
                  */
                 ?>        
                 <?php 
-                while ($tag = $lesInformations->fetch_assoc()){
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
-
-                ?>
-
-                    <article>
-                        <h3>
-                            <time datetime='2020-02-01 11:12:13' ><?php echo $tag['created'] ?></time>
-                        </h3>
-                        <address>par <?php echo $tag['author_name'] ?></address>
-                        <div>
-                            <?php echo $tag['content'] ?>
-                        </div>  
-                        
-                        <?php 
-                            $tab = explode(",",$tag['taglist'])
-                        ?>
-                        
-                        <footer>
-                            <small>♥ <?php echo $tag['like_number'] ?></small>
-                            <?php
-                            for ($i=0; $i < count($tab); $i++) { 
-                                ?>
-                                <a href="">#<?php echo $tab[$i] ?></a>,
-                            <?php
-                            }
-                            ?>
-                        </footer>
-                    </article>
-                    <?php
+                while ($post = $lesInformations->fetch_assoc()){
+                    // echo "<pre>" . print_r($post, 1) . "</pre>";
+                    include 'message.php';   
                     }
                 ?>
             </main>
