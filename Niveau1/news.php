@@ -8,10 +8,10 @@
     </head>
     <body>
     <header>
-        <?php include 'header.php';
-        ?>
         <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
-    </header>
+            <?php include 'header.php';
+        ?>
+        </header>
         <div id="wrapper">
             <aside>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>

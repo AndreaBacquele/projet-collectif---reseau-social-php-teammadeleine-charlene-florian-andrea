@@ -1,8 +1,10 @@
 
+
             <?php
             include 'config.php';
             
             ?>
+            
             
             <nav id="menu">
                 <a href="news.php">Actualités</a>
@@ -36,4 +38,3 @@
                 </ul>
 
             </nav>
-        

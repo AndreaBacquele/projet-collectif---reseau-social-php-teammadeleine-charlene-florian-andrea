@@ -7,10 +7,11 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-
-    <?php include 'header.php';
-    ?>
-
+        <header>
+            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <?php include 'header.php';
+            ?>
+        </header>
         
         <div id="wrapper" class='admin'>
             <aside>
@@ -37,10 +38,10 @@
                     // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3><?php echo $tag['label'] ?></h3>
+                        <h3><a href="tags.php?tag_id=<?php echo $tag['id']?>"><?php echo $tag['label'] ?></a></h3>
                         <p>Id : <?php echo $tag['id'] ?></p>
                         <nav>
-                            <a href="tags.php?tag_id=<?php $tag['id']?>">Messages</a>
+                            <a href="tags.php?tag_id=<?php echo $tag['id']?>">Messages</a>
                         </nav>
                     </article>
                 <?php } ?>
