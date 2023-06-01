@@ -17,21 +17,23 @@
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
                 <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-                <?php 
-                    $allTheTags = "SELECT * FROM `tags` LIMIT 50";
-                    $lesTags = $mysqli->query($allTheTags);
+                <div id="tags">
+                    <a id="nomtag" href="tags.php?tag_id=1">Mots-clés</a>
+                    <?php 
+                        $allTheTags = "SELECT * FROM `tags` LIMIT 50";
+                        $lesTags = $mysqli->query($allTheTags);
 
-                    while ($list = $lesTags->fetch_assoc())
-                {
-                    // echo "<pre>" . print_r($list, 1) . "</pre>";
+                        while ($list = $lesTags->fetch_assoc())
+                    {
+                        // echo "<pre>" . print_r($list, 1) . "</pre>";
+                        ?>
+                            <ul>
+                                <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
+                            </ul>
+                        <?php
+                    }
                     ?>
-                    <ul>
-                        <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
-                    </ul>
-                    <?php
-                }
-                ?>
+                </div>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
