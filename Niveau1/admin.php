@@ -22,17 +22,18 @@
                     <?php 
                         $allTheTags = "SELECT * FROM `tags` LIMIT 50";
                         $lesTags = $mysqli->query($allTheTags);
-
+                        ?>
+                        <ul>
+                        <?php
                         while ($list = $lesTags->fetch_assoc())
-                    {
+                        {
                         // echo "<pre>" . print_r($list, 1) . "</pre>";
                         ?>
-                            <ul>
                                 <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
-                            </ul>
-                        <?php
-                    }
-                    ?>
+                                <?php
+                        }
+                        ?>
+                    </ul>
                 </div>
             </nav>
             <nav id="user">
