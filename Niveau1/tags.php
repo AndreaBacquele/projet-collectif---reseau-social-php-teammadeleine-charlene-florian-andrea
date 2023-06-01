@@ -7,8 +7,11 @@
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-    <?php include 'header.php';
-    ?>
+    <header>
+            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <?php include 'header.php';
+            ?>
+        </header>
         <div id="wrapper">
             <?php
             /**
@@ -20,7 +23,6 @@
              */
             $tagId = intval($_GET['tag_id']);
             ?>
-          
 
             <aside>
                 <?php
