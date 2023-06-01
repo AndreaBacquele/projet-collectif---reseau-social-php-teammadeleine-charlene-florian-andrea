@@ -223,25 +223,24 @@ pre {
     color: #aaa;
 }
 
-body>header #menu ul {
+body>header #tags ul {
     display: none;
     position: absolute;
     padding: 0;
     margin: 0;
-    margin-left: -5em;
     background-color: #fff;
     border: 1px solid #99b;
     z-index: 1;
 }
 
-body>header #tags>#nomtag {
+body>header #tags #nomtag {
     display: block;
     text-align: center;
     padding: 2em 0;
     width: 100%;
 }
 
-body>header #tags ul li #nomtag {
+body>header #tags ul li {
     display: block;
     width: 10em;
     padding: 1em;
@@ -250,36 +249,6 @@ body>header #tags ul li #nomtag {
 
 body>header #tags:hover ul {
     display: block;
-}
-
-body>header #menu ul{ 
-    display: none;
-    position: absolute;
-    padding:0;
-    margin:0;
-    margin-left:-5em;
-    background-color: #fff;
-    border: 1px solid #99b;
-
-    z-index: 1;
-}
-
-body>header #tags>#nomtag{
-    display:block;
-    text-align: center;
-    padding:2em 0;
-    width:100%;
-}
-
-body>header #tags ul li #nomtag{
-    display:block;
-    width:10em;
-    padding:1em;
-    border-bottom: 1px solid #99b;
-}
-
-body>header #tags:hover ul{
-    display:block;
 }
 
 
