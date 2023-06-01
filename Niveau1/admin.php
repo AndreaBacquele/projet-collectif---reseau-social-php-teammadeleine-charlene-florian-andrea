@@ -29,8 +29,8 @@
                         {
                         // echo "<pre>" . print_r($list, 1) . "</pre>";
                         ?>
-                                <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
-                                <?php
+                            <li><a href="tags.php?tag_id=<?php echo $list['id']?>"><?php echo $list['label']?></a></li>
+                            <?php
                         }
                         ?>
                     </ul>
@@ -73,10 +73,10 @@
                     // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     ?>
                     <article>
-                        <h3><?php echo $tag['label'] ?></h3>
+                        <h3><a href="tags.php?tag_id=<?php echo $tag['id']?>"><?php echo $tag['label'] ?></a></h3>
                         <p>Id : <?php echo $tag['id'] ?></p>
                         <nav>
-                            <a href="tags.php?tag_id=<?php $tag['id']?>">Messages</a>
+                            <a href="tags.php?tag_id=<?php echo $tag['id']?>">Messages</a>
                         </nav>
                     </article>
                 <?php } ?>

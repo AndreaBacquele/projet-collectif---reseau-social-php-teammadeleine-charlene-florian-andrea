@@ -55,7 +55,7 @@
                 $lesInformations = $mysqli->query($laQuestionEnSql);
                 
                 while ($tag = $lesInformations->fetch_assoc()){
-                    echo "<pre>" . print_r($tag, 1) . "</pre>";
+                    // echo "<pre>" . print_r($tag, 1) . "</pre>";
                     include 'infoListe.php';
                 }
                 ?>
