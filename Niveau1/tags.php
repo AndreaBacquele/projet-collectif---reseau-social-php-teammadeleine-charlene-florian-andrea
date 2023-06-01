@@ -112,9 +112,7 @@
                 while ($post = $lesInformations->fetch_assoc())
                 {
                     include 'message.php';
-                 } ?>
-                
-
+                } ?>
             </main>
         </div>
     </body>
