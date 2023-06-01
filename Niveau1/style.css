@@ -61,7 +61,7 @@ body>header #user>a {
 }
 
 body>header #user ul {
-    display: none;
+    /* display: none; */
     position: absolute;
     padding: 0;
     margin: 0;
@@ -223,13 +223,14 @@ pre {
     color: #aaa;
 }
 
+
+
 body>header #tags ul {
     display: none;
     position: absolute;
     padding: 0;
     margin: 0;
     background-color: #fff;
-    border: 1px solid #99b;
     z-index: 1;
 }
 
@@ -240,15 +241,21 @@ body>header #tags #nomtag {
     width: 100%;
 }
 
-body>header #tags ul li {
+body > header #tags ul li {
     display: block;
-    width: 10em;
     padding: 1em;
     border-bottom: 1px solid #99b;
+}
+
+body>header #tags ul li a {
+    display: block;
+    border: none;
+}
+
+body>header #tags ul li a:focus {
+    outline: none;
 }
 
 body>header #tags:hover ul {
     display: block;
 }
-
-
