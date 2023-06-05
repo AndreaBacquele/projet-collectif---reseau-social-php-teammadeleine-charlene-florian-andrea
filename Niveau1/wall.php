@@ -17,8 +17,6 @@
 
             $userId =intval($_GET['user_id']);
             ?>
-         
-
             <aside>
                 <?php
                 /**
@@ -29,6 +27,7 @@
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 // echo "<pre>" . print_r($user, 1) . "</pre>";
+                // echo "<pre>" . print_r($_SESSION['connected_id'], 1) . "</pre>";
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
