@@ -9,21 +9,8 @@
     <body>
         <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
-            <nav id="menu">
-                <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
-                <a href="feed.php?user_id=5">Flux</a>
-                <a href="tags.php?tag_id=1">Mots-clés</a>
-            </nav>
-            <nav id="user">
-                <a href="#">Profil</a>
-                <ul>
-                    <li><a href="settings.php?user_id=5">Paramètres</a></li>
-                    <li><a href="followers.php?user_id=5">Mes suiveurs</a></li>
-                    <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
-                </ul>
-
-            </nav>
+            <?php include 'header.php';
+            ?>
         </header>
 
         <div id="wrapper" >
@@ -44,20 +31,11 @@
                     $enCoursDeTraitement = isset($_POST['email']);
                     if ($enCoursDeTraitement)
                     {
-                        // on ne fait ce qui suit que si un formulaire a été soumis.
-                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
-                        // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
-                        echo "<pre>" . print_r($_POST, 1) . "</pre>";
-                        // et complétez le code ci dessous en remplaçant les ???
-                        $new_email = $_POST['???'];
-                        $new_alias = $_POST['???'];
-                        $new_passwd = $_POST['???'];
-
-
-                        //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork_tests");
-                        //Etape 4 : Petite sécurité
-                        // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
+                        // echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                        $new_email = $_POST['email'];
+                        $new_alias = $_POST['pseudo'];
+                        $new_passwd = $_POST['motpasse'];
+                        include 'config.php';
                         $new_email = $mysqli->real_escape_string($new_email);
                         $new_alias = $mysqli->real_escape_string($new_alias);
                         $new_passwd = $mysqli->real_escape_string($new_passwd);
