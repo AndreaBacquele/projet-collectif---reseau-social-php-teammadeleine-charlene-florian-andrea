@@ -39,7 +39,6 @@
                         $listAuteurs[$user['id']] = $user['alias'];
                     }
 
-
                     /**
                      * TRAITEMENT DU FORMULAIRE
                      */
@@ -68,9 +67,7 @@
                                 . $authorId . ", "
                                 . "'" . $postContent . "', "
                                 . "NOW(), "
-                                . "NULL);"
-                                ;
-                        // echo $lInstructionSql;
+                                . "NULL);";
                         // Etape 5 : execution
                         $ok = $mysqli->query($lInstructionSql);
                         if ( ! $ok)
