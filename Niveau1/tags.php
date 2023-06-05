@@ -56,8 +56,8 @@
                     users.id as id,
                     users.alias as author_name,  
                     count(likes.id) as like_number,  
-                    users.id as id,
-                    GROUP_CONCAT(DISTINCT tags.label) AS taglist 
+                    GROUP_CONCAT(DISTINCT tags.label) AS taglist,
+                    GROUP_CONCAT(DISTINCT tags.id) AS tag_id_list 
                     FROM posts_tags as filter 
                     JOIN posts ON posts.id=filter.post_id
                     JOIN users ON users.id=posts.user_id
