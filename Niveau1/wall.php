@@ -84,7 +84,7 @@
                         {
                             // echo "Message posté en tant que :" . $listAuteurs[$authorId];
                         }
-                     }
+                    }
                     //     $connexionAbonnement = "INSERT INTO followers"
                     //             ."(id, followed_user_id, following_user_id)"
                         

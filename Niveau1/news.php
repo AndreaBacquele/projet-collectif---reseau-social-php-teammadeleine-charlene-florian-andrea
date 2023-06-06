@@ -9,8 +9,7 @@
     <body>
     <header>
         <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
-            <?php include 'header.php';
-        ?>
+            <?php include 'header.php';?>
         </header>
         <div id="wrapper">
             <aside>
