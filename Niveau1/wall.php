@@ -36,11 +36,6 @@
                         (n° <?php echo $userId ?>)
                         <button type ="submit" id="boutonAbo"> M'abonner </button>
                         <?php
-                        // if ($_SESSION['connected_id']){
-
-                        // }
-                        // ?>
-                        <?php
                         if($_SESSION['connected_id'] == $userId){
                             ?>
                             <article>
@@ -63,12 +58,8 @@
                     $enCoursDeTraitement = isset($_POST['new_post']);
                     if ($enCoursDeTraitement)
                     {
-                        // on ne fait ce qui suit que si un formulaire a été soumis.
-                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
-                        // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
                         // echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
-                        // $authorId = $_POST[$user['alias']];
                         $postContent = $_POST['new_post'];
 
 
