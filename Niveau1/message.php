@@ -14,9 +14,7 @@
         $list_of_tag_id= explode(",", $post['tag_id_list']);
         $last_element=array_pop($list_of_tag_id);
         array_unshift($list_of_tag_id, $last_element);
-        
-        
-     ?>                                            
+    ?>                                            
     <footer>
         <small>♥ <?php echo $post['like_number'] ?></small>
         <?php
