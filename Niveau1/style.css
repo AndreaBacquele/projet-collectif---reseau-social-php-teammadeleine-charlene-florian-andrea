@@ -236,6 +236,8 @@ form dl dd textarea{width:40em;
     height: 15em;
 }
 
+/* CSS pour le dropdown menu du 'mots-clés' */
+
 body>header #tags ul {
     display: none;
     position: absolute;
@@ -277,3 +279,36 @@ body>header #tags:hover ul {
     display: block;
 }
 
+/* background madeleines de la boite 'you have been logged out' */
+
+.madeleines {
+    background-image: url(images/madeleines_bg1.png);
+    background-repeat: repeat;
+}
+
+/* emplacement de la boite de texte 'reculer d'une page' */
+
+.echo{
+
+    border-radius: 25px;
+    background-color: rgb(	250, 200, 152);
+    text-align: center;
+    width: 20em;
+    height: 5em;
+    margin: 8em 24.5em;
+    padding-top: 2em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* decoration lien underline */
+
+.echo a{
+    text-decoration: underline;
+}
+
+/* appeler l'img */
+
+.back img{
+    margin-top: 2em;
+}
