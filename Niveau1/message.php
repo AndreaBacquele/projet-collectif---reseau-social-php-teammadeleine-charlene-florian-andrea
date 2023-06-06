@@ -30,7 +30,7 @@
         <?php
         $str = $post['content'];
         $pattern = "/#/";
-        $result = preg_match($pattern, $str);
+        $result = preg_match_all($pattern, $str);
         if ($result>0){
         echo $result;
         }
