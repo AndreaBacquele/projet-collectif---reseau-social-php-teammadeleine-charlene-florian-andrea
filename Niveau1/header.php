@@ -37,8 +37,6 @@
                 <nav id="user">
                     <a href="#">Profil</a>
                     <ul>
-                        <li><a href="login.php">Log In</a></li>
-                        <li><a href="registration.php">Sign In</a></li>
                         <li><a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Paramètres</a></li>
                         <li><a href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
                         <li><a href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
@@ -48,4 +46,21 @@
                 </nav>
 
                 <?php
-            }
+                } else if (! isset($_SESSION['connected_id'])){
+                    ?>
+                        <div id="">
+                            <h3>Veuillez créer un compte ou vous connectez pour accéder aux differentes fonctionnalités !</h3>
+                        </div>
+                        <nav id="user">
+                            <a href="#">Profil</a>
+                            <ul>
+                        <li><a href="login.php">Log In</a></li>
+                        <li><a href="registration.php">Sign In</a></li>
+                        <?php
+                        if($_SERVER['PHP_SELF'] === "/resoc_n1/Niveau1/registration.php" || $_SERVER['PHP_SELF'] === "/resoc_n1/Niveau1/login.php") {
+                        } else {
+                            header("Location: login.php");
+                        exit();
+                        }
+                    }
+                ?>
