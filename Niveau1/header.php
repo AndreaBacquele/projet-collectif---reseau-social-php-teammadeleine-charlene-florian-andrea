@@ -49,7 +49,3 @@
 
                 <?php
             }
-            else
-            {
-                echo 'You are not logged in. <a href="login.php">Click here</a> to log in.';
-            }
