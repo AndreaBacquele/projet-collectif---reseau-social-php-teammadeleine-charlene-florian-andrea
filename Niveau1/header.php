@@ -10,6 +10,7 @@
                 <a href="news.php">Actualités</a>
                 <a href="wall.php?user_id=5">Mur</a>
                 <a href="feed.php?user_id=5">Flux</a>
+                
                 <div id="tags">
                     <a id="nomtag" href="tags.php?tag_id=1">Mots-clés</a>
                     <?php 
@@ -28,6 +29,7 @@
                         ?>
                     </ul>
                 </div>
+                <a href="registration.php?user_id=5">registration</a>
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>

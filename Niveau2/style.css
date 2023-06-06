@@ -3,8 +3,13 @@ body{
     font-family: Arial;
 }
 
-a{text-decoration: none; color:black;}
-a:hover{text-decoration: underline;}
+a{
+    text-decoration: none;
+     color:black;
+    }
+a:hover{
+    text-decoration: underline;
+}
 
 body>header{
     background-color: #fff;
@@ -33,9 +38,10 @@ body>header a:hover
 {
     background-color: #99b;
 }
-body>header ul{list-style: none;}
-body>header #user
-{
+body>header ul{
+    list-style: none;
+}
+body>header #user{
     margin-left: auto;
     flex:0.2;
     border-left: 1px solid #99b;
@@ -122,18 +128,50 @@ body>header #user:hover ul{
     float:left;
 }
 
-#wrapper.admin{flex-direction: row-reverse}
-#wrapper.admin aside{flex:1;margin-left:1em;border-radius:0;padding:0;}
-#wrapper.admin main{flex:2;background-color: #fff;border-radius: 0;padding:0;}
-#wrapper.admin h2{text-align: center;}
-#wrapper.admin h3{margin:0;}
-#wrapper.admin nav{text-align: right;}
-#wrapper.admin article{border:1px solid #ddd;border-radius: 1em;padding:1em;margin:1em;}
-#wrapper.admin article p{float:left;margin:0;}
+#wrapper.admin{
+    flex-direction: row-reverse
+}
+#wrapper.admin aside{
+    flex:1;
+    margin-left:1em;
+    border-radius:0;
+    padding:0;
+}
+#wrapper.admin main{
+    flex:2;background-color: #fff;
+    border-radius: 0;
+    padding:0;
+}
+#wrapper.admin h2{
+    text-align: center;
+}
+#wrapper.admin h3{
+    margin:0;
+}
+#wrapper.admin nav{
+    text-align: right;
+}
+#wrapper.admin article{
+    border:1px solid #ddd;
+    border-radius: 1em;
+    padding:1em;
+    margin:1em;
+}
+#wrapper.admin article p{
+    float:left;
+    margin:0;
+}
 
 
-.parameters dl dt{float:left;font-weight: bold;line-height: 1.5em;}
-.parameters dl dd{margin-left:15em;line-height: 1.5em;}
+.parameters dl dt{
+    float:left;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+.parameters dl dd{
+    margin-left:15em;
+    line-height: 1.5em;
+}
 
 .contacts {
     display:flex;
@@ -155,6 +193,15 @@ pre{
     color:#aaa;
 }
 
-form dl dt{float:left;font-weight: bold;line-height: 1.5em;}
-form dl dd{margin-left:10em;line-height: 1.5em;margin-bottom: 1em}
-form dl dd textarea{width:40em;height: 15em;}
+form dl dt{
+    float:left;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+form dl dd{margin-left:10em;
+    line-height: 1.5em;
+    margin-bottom: 1em
+}
+form dl dd textarea{width:40em;
+    height: 15em;
+}
