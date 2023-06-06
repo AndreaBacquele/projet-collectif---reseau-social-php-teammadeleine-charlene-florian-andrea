@@ -27,16 +27,18 @@
                         $listAuteurs[$user['id']] = $user['alias'];
                     }
                     ?>
-                    <form action="wall.php?user_id=<?php echo $userID ?>" method="post">
-                    <dd>
-                        <select name='auteur'>
-                            <?php
-                                foreach ($listAuteurs as $id => $alias)
-                                echo "<option value='$id'>$alias</option>";
-                            ?>
-                        </select><button type="submit">Allez sur le mur</button>
-                    </dd>
-                </form>
+                    <form action="wall.php" method="get">
+                        <dd>
+                            <select name="user_id">
+                                <?php
+                                foreach ($listAuteurs as $id => $alias) {
+                                    echo "<option value='$id'>$alias</option>";
+                                }
+                                ?>
+                            </select>
+                            <button type="submit">Allez sur le mur</button>
+                        </dd>
+                    </form>
                 </section>
             </aside>
             <main>
