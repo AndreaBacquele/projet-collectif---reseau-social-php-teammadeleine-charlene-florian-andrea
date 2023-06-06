@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <img src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/>
             <?php include 'header.php';
             ?>
         </header>

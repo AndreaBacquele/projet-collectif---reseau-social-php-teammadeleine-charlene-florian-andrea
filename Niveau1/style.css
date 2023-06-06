@@ -1,5 +1,5 @@
 body {
-    background-color: #003;
+    background-color: #ffc143;
     font-family: Arial;
 }
 
@@ -265,7 +265,7 @@ body > header #tags ul li {
 body>header #tags ul li a {
     display: block;
     border-left: 1px solid #99b;
-    padding: 1em 3.5em;
+    padding: 1em 3.55em;
     
 }
 
