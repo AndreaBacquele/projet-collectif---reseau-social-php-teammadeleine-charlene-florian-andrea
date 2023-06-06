@@ -27,13 +27,19 @@
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 // echo "<pre>" . print_r($user, 1) . "</pre>";
-                // echo "<pre>" . print_r($_SESSION['connected_id'], 1) . "</pre>";
+                //echo "<pre>" . print_r($_SESSION['connected_id'], 1) . "</pre>";
                 ?>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
+                        <button type ="submit" id="boutonAbo"> M'abonner </button>
+                        <?php
+                        // if ($_SESSION['connected_id']){
+
+                        // }
+                        // ?>
                         <?php
                         if($_SESSION['connected_id'] == $userId){
                             ?>
@@ -87,7 +93,12 @@
                         {
                             // echo "Message posté en tant que :" . $listAuteurs[$authorId];
                         }
-                    }
+                     }
+                    //     $connexionAbonnement = "INSERT INTO followers"
+                    //             ."(id, followed_user_id, following_user_id)"
+                        
+                    //     $abo = $mysqli->query($connexionAbonnement);
+                        
                     ?>  
                 <?php
                 /**
@@ -123,3 +134,23 @@
         </div>
     </body>
 </html>
+
+
+<!-- $lInstructionSql = "INSERT INTO posts "
+                                . "(id, user_id, content, created, parent_id) "
+                                . "VALUES (NULL, "
+                                . $authorId . ", "
+                                . "'" . $postContent . "', "
+                                . "NOW(), "
+                                . "NULL);";
+                        // Etape 5 : execution
+                        $ok = $mysqli->query($lInstructionSql);
+                        if ( ! $ok)
+                        {
+                            echo "Impossible d'ajouter le message: " . $mysqli->error;
+                        } else
+                        {
+                            echo "Message posté en tant que :" . $listAuteurs[$authorId];
+                        }
+                    }
+                    ?>    -->

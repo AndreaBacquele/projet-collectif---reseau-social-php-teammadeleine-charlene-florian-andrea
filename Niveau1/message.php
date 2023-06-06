@@ -29,5 +29,13 @@
             }
         }
         ?>
+        <?php
+        $str = $post['content'];
+        $pattern = "/#/";
+        $result = preg_match($pattern, $str);
+        if ($result>0){
+        echo $result;
+        }
+        ?> 
         </footer>
 </article>
