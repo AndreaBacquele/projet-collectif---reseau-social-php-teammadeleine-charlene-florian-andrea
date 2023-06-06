@@ -19,6 +19,24 @@
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez les derniers messages de
                         tous les utilisatrices du site.</p>
+                    <?php
+                    $laQuestionEnSql = "SELECT * FROM users";
+                    $lesInformations = $mysqli->query($laQuestionEnSql);
+                    while ($user = $lesInformations->fetch_assoc())
+                    {
+                        $listAuteurs[$user['id']] = $user['alias'];
+                    }
+                    ?>
+                    <form action="wall.php?user_id=<?php echo $userID ?>" method="post">
+                    <dd>
+                        <select name='auteur'>
+                            <?php
+                                foreach ($listAuteurs as $id => $alias)
+                                echo "<option value='$id'>$alias</option>";
+                            ?>
+                        </select><button type="submit">Allez sur le mur</button>
+                    </dd>
+                </form>
                 </section>
             </aside>
             <main>
@@ -77,8 +95,6 @@
                     // avec le <?php ci-dessus on retourne en mode php 
                 }// cette accolade ferme et termine la boucle while ouverte avant.
                 ?>
-                
-
             </main>
         </div>
     </body>
