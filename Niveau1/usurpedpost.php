@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <img src="resoc.jpg" alt="Logo de notre réseau social"/>
+            <img src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/>
             <?php include 'header.php';
             ?>
         </header>
@@ -63,10 +63,7 @@
                         //Etape 4 : construction de la requete
                         $lInstructionSql = "INSERT INTO posts "
                                 . "(id, user_id, content, created, parent_id) "
-                                . "VALUES (NULL, "
-                                . $authorId . ", "
-                                . "'" . $postContent . "', "
-                                . "NOW(), "
+                                . "VALUES (NULL, ". $authorId . ", ". "'" . $postContent . "', ". "NOW(), "
                                 . "NULL);";
                         // Etape 5 : execution
                         $ok = $mysqli->query($lInstructionSql);
