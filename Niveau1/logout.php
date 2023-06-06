@@ -12,7 +12,9 @@
         <?php
         
         session_start();
+        session_unset();
         session_destroy();
+        setcookie("PHPSESSID","",time() - 3600, "/");
         
         echo "Vous avez été déconnecté.<br> <a href='login.php'>Reculer d'une page</a>" 
         ?>

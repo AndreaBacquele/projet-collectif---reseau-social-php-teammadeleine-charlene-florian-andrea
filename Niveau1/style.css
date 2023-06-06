@@ -1,5 +1,7 @@
+
+
 body {
-    background-color: #ffc143;
+    background-color: #f3f3f3;
     font-family: Arial;
 }
 
@@ -13,7 +15,8 @@ a:hover {
 }
 
 body>header {
-    background-color: #fff;
+    background-color: #FFB673;
+    box-shadow: 0px 6px 34px 7px rgba(158, 158, 158, 0.63);
     display: flex;
     width: 80em;
     margin: 0 auto 2em auto;
@@ -23,24 +26,25 @@ body>header {
 
 body>header img {
     height: 5em;
+    filter: drop-shadow(8px 5px 4px rgba(138, 67, 0, 0.527));
 }
 
 body>header #menu {
     display: flex;
     width: 50%;
     align-items: stretch;
-    border-left: 1px solid #99b;
+    border-left: 1px solid #c18245;
 }
 
 body>header #menu a {
     flex: 1;
     text-align: center;
     padding-top: 2em;
-    border-right: 1px solid #99b;
+    border-right: 1px solid #c18245;
 }
 
 body>header a:hover {
-    background-color: #99b;
+    background-color: #c18245;
 }
 
 body>header ul {
@@ -50,7 +54,7 @@ body>header ul {
 body>header #user {
     margin-left: auto;
     flex: 0.2;
-    border-left: 1px solid #99b;
+    border-left: 1px solid #c18245;
 }
 
 body>header #user>a {
@@ -66,9 +70,9 @@ body>header #user ul {
     padding: 0;
     margin: 0;
     margin-left: -5em;
-    background-color: #fff;
-    border: 1px solid #99b;
-
+    background-color: #FFB673;
+    border: 1px solid #c18245;
+    
     z-index: 1;
 }
 
@@ -76,7 +80,7 @@ body>header #user ul li a {
     display: block;
     width: 10em;
     padding: 1em;
-    border-bottom: 1px solid #99b;
+    border-bottom: 1px solid #c18245;
 }
 
 body>header #user:hover ul {
@@ -91,7 +95,8 @@ body>header #user:hover ul {
 }
 
 #wrapper aside {
-    background-color: #fff;
+    background-color: #FFB673;
+    box-shadow: 0px 6px 34px 7px rgba(158, 158, 158, 0.63);
     flex: 1;
     padding: 1em;
     border-radius: 1em;
@@ -101,6 +106,7 @@ body>header #user:hover ul {
     display: block;
     width: 50%;
     margin: auto;
+    filter: drop-shadow(5px 5px 4px rgba(138, 67, 0, 0.527));
 }
 
 #wrapper main {
@@ -111,7 +117,8 @@ body>header #user:hover ul {
 }
 
 #wrapper main article {
-    background-color: #fff;
+    box-shadow: 0px 6px 34px -9px rgba(158, 158, 158, 0.63);
+    background-color: #FFB673;
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 1em;
@@ -160,7 +167,7 @@ body>header #user:hover ul {
 
 #wrapper.admin main {
     flex: 2;
-    background-color: #fff;
+    background-color: #FFB673;
     border-radius: 0;
     padding: 0;
 }
@@ -178,7 +185,7 @@ body>header #user:hover ul {
 }
 
 #wrapper.admin article {
-    border: 1px solid #ddd;
+    border: 1px solid #FFB673;
     border-radius: 1em;
     padding: 1em;
     margin: 1em;
@@ -243,7 +250,7 @@ body>header #tags ul {
     position: absolute;
     padding: 0;
     margin: 0;
-    background-color: #fff;
+    background-color: #FFB673;
     z-index: 1;
 }
 
@@ -258,15 +265,15 @@ body>header #tags #nomtag {
 
 body > header #tags ul li {
     display: block;
-    border-bottom: 1px solid #99b;
-    border-top: 1px solid #99b;
+    border-bottom: 1px solid #c18245;
+    border-top: 1px solid #c18245;
 
     
 }
 
 body>header #tags ul li a {
     display: block;
-    border-left: 1px solid #99b;
+    border-left: 1px solid #c18245;
     padding: 1em 3.55em;
     
 }
@@ -282,6 +289,7 @@ body>header #tags:hover ul {
 /* background madeleines de la boite 'you have been logged out' */
 
 .madeleines {
+    background-color: #ffc143;
     background-image: url(images/madeleines_bg1.png);
     background-repeat: repeat;
 }
@@ -296,9 +304,12 @@ body>header #tags:hover ul {
     width: 20em;
     height: 5em;
     margin: 8em 24.5em;
-    padding-top: 2em;
+    padding-top: 1.5em;
     font-size: 1.2em;
     font-weight: bold;
+    box-shadow: 0px 6px 34px 7px rgba(255, 196, 0, 0.5);;
+    border: 2px solid rgb(141, 92, 0);
+    line-height: 2em;
 }
 
 /* decoration lien underline */
@@ -311,4 +322,5 @@ body>header #tags:hover ul {
 
 .back img{
     margin-top: 2em;
+    filter: drop-shadow(20px 20px 4px rgba(138, 67, 0, 0.527));
 }
