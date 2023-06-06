@@ -29,7 +29,7 @@
                         ?>
                     </ul>
                 </div>
-                <a href="registration.php?user_id=5">registration</a>
+                
             </nav>
             <nav id="user">
                 <a href="#">Profil</a>
