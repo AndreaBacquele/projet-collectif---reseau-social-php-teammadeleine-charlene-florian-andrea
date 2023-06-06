@@ -16,15 +16,26 @@
         array_unshift($list_of_tag_id, $last_element);
     ?>                                            
     <footer>
-        <small>♥ <?php echo $post['like_number'] ?></small>
+    <small>
+        ♥ <?php echo $post['like_number'] ?>
+        <a href="like.php?post_id=<?php echo $post['id']; ?>">Like</a>
+        <a href="unlike.php?post_id=<?php echo $post['id']; ?>">Unlike</a>
+    </small>
+        
+
+
         <?php
         if($tab !== [""]){        
             for ($i=0; $i < count($tab); $i++) { 
         ?>
             
-            <a href="tags.php?tag_id=<?php echo $list_of_tag_id[$i] ?>">#<?php echo $tab[$i] ?></a>,
+            <a href="tags.php?tag_id=<?php echo $list_of_tag_id[$i] ?>">#<?php echo $tab[$i] ?></a>
         <?php
-            }
+        }
+        }else{
+            ?>
+            <br>
+            <?php
         }
         ?>
         <?php

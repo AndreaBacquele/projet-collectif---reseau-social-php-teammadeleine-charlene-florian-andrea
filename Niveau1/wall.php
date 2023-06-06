@@ -34,17 +34,20 @@
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
+                        
                         <?php
                         if ($_SESSION['connected_id']!= $userId){
                             ?>
-                            <button type ="submit" id="boutonAbo" name="boutonAbo"> M'abonner </button>
+                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                            </form>
                             <?php
     
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                                    VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
                         
                              
-                        if (isset($_GET['boutonAbo']))
+                        if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
                             echo "Vous êtes abonné à : " . $user['alias'];
@@ -140,3 +143,4 @@
         </div>
     </body>
 </html>
+
