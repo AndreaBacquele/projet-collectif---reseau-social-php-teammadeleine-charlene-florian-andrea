@@ -140,23 +140,3 @@
         </div>
     </body>
 </html>
-
-
-<!-- $lInstructionSql = "INSERT INTO posts "
-                                . "(id, user_id, content, created, parent_id) "
-                                . "VALUES (NULL, "
-                                . $authorId . ", "
-                                . "'" . $postContent . "', "
-                                . "NOW(), "
-                                . "NULL);";
-                        // Etape 5 : execution
-                        $ok = $mysqli->query($lInstructionSql);
-                        if ( ! $ok)
-                        {
-                            echo "Impossible d'ajouter le message: " . $mysqli->error;
-                        } else
-                        {
-                            echo "Message posté en tant que :" . $listAuteurs[$authorId];
-                        }
-                    }
-                    ?>    -->
