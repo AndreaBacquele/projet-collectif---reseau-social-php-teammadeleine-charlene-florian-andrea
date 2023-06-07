@@ -85,12 +85,23 @@
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                             VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
 
-                            if (isset($_POST['boutonAbo']))
-                            {
-                                $abo = $mysqli->query($connexionAbonnement);
-                                echo "Vous êtes abonné à : " . $user['alias'];
-                            }
+                            $desabonnement = "DELETE FROM followers WHERE following_user_id = ".$_SESSION['connected_id']." AND followed_user_id = '".$userId."'";
+
+                        if (isset($_POST['boutonAbo']))
+                        {
+                            $abo = $mysqli->query($connexionAbonnement);
+                            echo "Vous êtes abonné à : " . $user['alias'];
+                
                         }
+                        if (isset($_POST['boutonDesabo']))
+                        {
+                            $desabo = $mysqli->query($desabonnement);
+                            echo "Vous vous êtes desabonné de : " . $user['alias'];
+                        
+                        }
+                    }
+                        
+                    
                         ?>    
                         
                         </p>
