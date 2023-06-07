@@ -16,6 +16,25 @@
             <?php
 
             $userId =intval($_GET['user_id']);
+            
+            $laQuestionEnSql = "
+            SELECT posts.content, posts.created, users.alias as author_name,users.id as id,     
+            COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist, 
+            GROUP_CONCAT(DISTINCT tags.id) AS tag_id_list 
+            FROM posts
+            JOIN users ON  users.id=posts.user_id
+            LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
+            LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
+            LEFT JOIN likes      ON likes.post_id  = posts.id 
+            WHERE posts.user_id='$userId' 
+            GROUP BY posts.id
+            ORDER BY posts.created DESC  
+            ";
+            $lesInformations = $mysqli->query($laQuestionEnSql);
+            if ( ! $lesInformations)
+            {
+                echo("Échec de la requete : " . $mysqli->error);
+            }
             ?>
 
             <aside>
@@ -42,36 +61,26 @@
 
                             $aboCheck = "SELECT followers.followed_user_id
                             FROM followers
-                            WHERE following_user_id = " . $_SESSION['connected_id'] . "";
+                            WHERE following_user_id = " . $_SESSION['connected_id'] . "
+                            AND followed_user_id = " . $userId . "";
 
                             $lesIdDesAbos = $mysqli->query($aboCheck);
                             
-                            if ($lesIdDesAbos -> {"num_rows"} === 0)
+                            if ($lesIdDesAbos -> {"num_rows"} === 1)
                             {
-                                ?>
-                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
-                                    </form>
-                                <?php
+                            ?>
+                                <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                            <?php
                             }
-                            $check = 0;
-                            while ($id = $lesIdDesAbos->fetch_assoc())
+                            else
                             {
-                                echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
-                                if($user['id'] == $id['followed_user_id'] AND $check == 0){
-                                    $check = 1;
-                                    ?>
-                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
-                                    <?php
-                                }else if($check ==0){
-                                    $check = 1;
-                                    ?>
-                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
-                                    </form>
-                                    <?php
-                                }
+                            ?>
+                                <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                                </form>
+                            <?php
                             }
+
 
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                             VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
@@ -81,7 +90,7 @@
                                 $abo = $mysqli->query($connexionAbonnement);
                                 echo "Vous êtes abonné à : " . $user['alias'];
                             }
-                    }
+                        }
                         ?>    
                         
                         </p>
@@ -113,29 +122,6 @@
                         header("Location: news.php");
                     }
                     ?>  
-                <?php
-                /**
-                 * Etape 3: récupérer tous les messages de l'utilisatrice
-                 */
-                $laQuestionEnSql = "
-                    SELECT posts.content, posts.created, users.alias as author_name,users.id as id,     
-                    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist, 
-                    GROUP_CONCAT(DISTINCT tags.id) AS tag_id_list 
-                    FROM posts
-                    JOIN users ON  users.id=posts.user_id
-                    LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
-                    LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
-                    LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    WHERE posts.user_id='$userId' 
-                    GROUP BY posts.id
-                    ORDER BY posts.created DESC  
-                    ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
-                {
-                    echo("Échec de la requete : " . $mysqli->error);
-                }
-                ?>
 
                 <?php
                         if($_SESSION['connected_id'] == $userId){
