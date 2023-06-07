@@ -35,7 +35,7 @@
                     
                 </nav>
                 <nav id="user">
-                    <a href="#">Profil</a>
+                    <a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Profil</a>
                     <ul>
                         <li><a title="Paramètres" href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="sett" src="images/settings.png"/></a></li>
                         <li><a title="Mes abonnés" href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="abo" src="images/followed.png"/></a></li>

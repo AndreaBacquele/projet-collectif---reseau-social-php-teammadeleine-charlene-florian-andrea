@@ -34,7 +34,7 @@ DROP TABLE IF EXISTS `followers`;
 CREATE TABLE `followers` (
   `id` int(10) UNSIGNED NOT NULL,
   `followed_user_id` int(10) UNSIGNED NOT NULL,
-  `following_user_id` int(10) UNSIGNED NOT NULL
+  `following_user_id` int(10) UNSIGNED NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -212,8 +212,8 @@ INSERT INTO `users` (`id`, `email`, `password`, `alias`) VALUES
 ALTER TABLE `followers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_users_has_users_users2_idx` (`following_user_id`),
-  ADD KEY `fk_users_has_users_users1_idx` (`followed_user_id`);
-
+  ADD KEY `fk_users_has_users_users1_idx` (`followed_user_id`),
+  ADD UNIQUE `unique_index`(`followed_user_id`, `following_user_id`);
 --
 -- Index pour la table `likes`
 --

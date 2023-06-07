@@ -16,7 +16,27 @@
             <?php
 
             $userId =intval($_GET['user_id']);
+            
+            $laQuestionEnSql = "
+            SELECT posts.content, posts.created, users.alias as author_name,users.id as id,     
+            COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist, 
+            GROUP_CONCAT(DISTINCT tags.id) AS tag_id_list 
+            FROM posts
+            JOIN users ON  users.id=posts.user_id
+            LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
+            LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
+            LEFT JOIN likes      ON likes.post_id  = posts.id 
+            WHERE posts.user_id='$userId' 
+            GROUP BY posts.id
+            ORDER BY posts.created DESC  
+            ";
+            $lesInformations = $mysqli->query($laQuestionEnSql);
+            if ( ! $lesInformations)
+            {
+                echo("Échec de la requete : " . $mysqli->error);
+            }
             ?>
+
             <aside>
                 <?php
                 /**
@@ -36,42 +56,55 @@
                         (n° <?php echo $userId ?>)
                         
                         <?php
+                        // Permet d'afficher le bouton abonnement si on est sur un mur utilisateur qui n'est pas le nôtre
                         if ($_SESSION['connected_id']!= $userId){
+
+                            $aboCheck = "SELECT followers.followed_user_id
+                            FROM followers
+                            WHERE following_user_id = " . $_SESSION['connected_id'] . "
+                            AND followed_user_id = " . $userId . "";
+
+                            $lesIdDesAbos = $mysqli->query($aboCheck);
+                            
+                            if ($lesIdDesAbos -> {"num_rows"} === 1)
+                            {
                             ?>
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
-                            </form>
+                                <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner">
                             <?php
-    
+                            }
+                            else
+                            {
+                            ?>
+                                <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                                </form>
+                            <?php
+                            }
+
+
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
-                                   VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
-                        
-                             
+                            VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
+
+                            $desabonnement = "DELETE FROM followers WHERE following_user_id = ".$_SESSION['connected_id']." AND followed_user_id = '".$userId."'";
+
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
                             echo "Vous êtes abonné à : " . $user['alias'];
-                        } 
-                    }
-                            ?>    
-                        <?php
-                        
-                        ?>
-                        <?php
-                        if($_SESSION['connected_id'] == $userId){
-                            ?>
-                            <article>
-                                <form action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>" method="post">
-                                    <dl>
-                                        <dt><label for="new_post">Avez-vous quelque chose à dire ?</label></dt>
-                                        <dd><textarea name="new_post"></textarea></dd>
-                                    </dl>
-                                    <button type="submit" id="submit_form">Poster</button>
-                                </form>
-                            </article>
-                            <?php
+                
                         }
-                        ?>
+                        if (isset($_POST['boutonDesabo']))
+                        {
+                            $desabo = $mysqli->query($desabonnement);
+                            echo "Vous vous êtes desabonné de : " . $user['alias'];
+                        
+                        }
+                    }
+                        
+                    
+                        ?>    
+                        
                         </p>
                 </section>
             </aside>
@@ -81,7 +114,6 @@
                     if ($enCoursDeTraitement)
                     {
                         // echo "<pre>" . print_r($_POST, 1) . "</pre>";
-                        // et complétez le code ci dessous en remplaçant les ???
                         $postContent = $_POST['new_post'];
 
 
@@ -99,42 +131,28 @@
                                 . "NULL);";
                         // Etape 5 : execution
                         $ok = $mysqli->query($lInstructionSql);
-                        if ( ! $ok)
-                        {
-                            echo "Impossible d'ajouter le message: " . $mysqli->error;
-                        } else
-                        {
-                             echo "Message posté en tant que :" . $listAuteurs[$authorId];
-                        }
-                     }
-                    // 
+                        header("Location: news.php");
+                    }
                     ?>  
-                <?php
-                /**
-                 * Etape 3: récupérer tous les messages de l'utilisatrice
-                 */
-                $laQuestionEnSql = "
-                    SELECT posts.content, posts.created, users.alias as author_name,users.id as id,     
-                    COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist, 
-                    GROUP_CONCAT(DISTINCT tags.id) AS tag_id_list 
-                    FROM posts
-                    JOIN users ON  users.id=posts.user_id
-                    LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
-                    LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
-                    LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    WHERE posts.user_id='$userId' 
-                    GROUP BY posts.id
-                    ORDER BY posts.created DESC  
-                    ";
-                $lesInformations = $mysqli->query($laQuestionEnSql);
-                if ( ! $lesInformations)
-                {
-                    echo("Échec de la requete : " . $mysqli->error);
-                }
 
-                /**
-                 * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
-                 */
+                <?php
+                        if($_SESSION['connected_id'] == $userId){
+                            ?>
+                            <article>
+                                <form action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>" method="post">
+                                    <dl>
+                                        <dt><label for="new_post">Avez-vous quelque chose à dire ?</label></dt>
+                                        <dd><br>
+                                            <textarea name="new_post"></textarea>
+                                        </dd>
+                                    </dl>
+                                    <button type="submit" id="submit_form">Poster</button>
+                                </form>
+                            </article>
+                            <?php
+                        }
+                        ?>
+                        <?php
                 while ($post = $lesInformations->fetch_assoc())
                 {
                     include 'message.php';            

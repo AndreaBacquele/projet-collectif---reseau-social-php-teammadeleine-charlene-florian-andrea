@@ -79,7 +79,9 @@
                         <input type='submit'>
                     </form>
                     <p>
+                        <br>
                         Pas de compte?
+                        <br>
                         <a href='registration.php'>Inscrivez-vous.</a>
                     </p>
 
