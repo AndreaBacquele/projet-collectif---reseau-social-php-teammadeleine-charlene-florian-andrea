@@ -8,7 +8,7 @@
     </head>
     <body>
     <header>
-            <img src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/>
+            <img id="madeli" src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/>
             <?php include 'header.php';
             ?>
         </header>

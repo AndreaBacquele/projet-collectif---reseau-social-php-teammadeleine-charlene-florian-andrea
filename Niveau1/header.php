@@ -10,12 +10,12 @@
             {
                 ?>
                 <nav id="menu">
-                    <a href="news.php">Actualités</a>
-                    <a href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mur</a>
-                    <a href="feed.php?user_id=5">Flux</a>
-                    <a href="usurpedpost.php">Among Us</a>
+                    <a title="Actualités" href="news.php"><img src="images/news.png"/></a>
+                    <a title="Mur"  href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img src="images/wall.png"/></a>
+                    <a title="Flux" href="feed.php?user_id=5"><img src="images/feed.png"/></a>
+                    <a title="Among us" href="usurpedpost.php"><img src="images/among_us.png"/></a>
                     <div id="tags">
-                        <a id="nomtag" href="tags.php?tag_id=1">Mots-clés</a>
+                        <a title="Mots-clés" id="nomtag" href="tags.php?tag_id=1"><img src="images/tag.png"/></a>
                         <?php 
                             $allTheTags = "SELECT * FROM `tags` LIMIT 50";
                             $lesTags = $mysqli->query($allTheTags);
@@ -37,10 +37,10 @@
                 <nav id="user">
                     <a href="#">Profil</a>
                     <ul>
-                        <li><a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Paramètres</a></li>
-                        <li><a href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes suiveurs</a></li>
-                        <li><a href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Mes abonnements</a></li>
-                        <li><a href='logout.php'>Log out</a></li>
+                        <li><a title="Paramètres" href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="sett" src="images/settings.png"/></a></li>
+                        <li><a title="Mes abonnés" href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="abo" src="images/followed.png"/></a></li>
+                        <li><a title="Mes abonnements" href="subscriptions.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="abo" src="images/follower.png"/></a></li>
+                        <li><a title="Se déconnecter" href='logout.php'><img id="logout" src="images/log_out.png"/></a></li>
                     </ul>
 
                 </nav>
@@ -48,8 +48,8 @@
                 <?php
                 } else if (! isset($_SESSION['connected_id'])){
                     ?>
-                        <div id="">
-                            <h3>Veuillez créer un compte ou vous connectez pour accéder aux differentes fonctionnalités !</h3>
+                        <div id="login_msg">
+                            <h3>Veuillez créer un compte ou vous connecter pour accéder aux differentes fonctionnalitées !</h3>
                         </div>
                         <nav id="user">
                             <a href="#">Profil</a>
