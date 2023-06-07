@@ -17,6 +17,7 @@
 
             $userId =intval($_GET['user_id']);
             ?>
+
             <aside>
                 <?php
                 /**
@@ -38,20 +39,40 @@
                         <?php
                         // Permet d'afficher le bouton abonnement si on est sur un mur utilisateur qui n'est pas le nôtre
                         if ($_SESSION['connected_id']!= $userId){
-                            ?>
-                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
-                            </form>
-                            <?php
-    
-                            $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
-                                   VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
-                                   
 
-                                   // Requete pour récuperer la correspondance
-            
-          
-                             
+                            $aboCheck = "SELECT followers.followed_user_id
+                            FROM followers
+                            WHERE following_user_id = " . $_SESSION['connected_id'] . "";
+
+                            $lesIdDesAbos = $mysqli->query($aboCheck);
+                            // echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
+                            if ($lesIdDesAbos -> {"num_rows"} === 0)
+                            {
+                                ?>
+                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                                    </form>
+                                <?php
+                            }
+
+                            while ($id = $lesIdDesAbos->fetch_assoc())
+                            {
+                                if($user['id'] == $id['followed_user_id']){
+                                    ?>
+                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                                    <?php
+                                }else{
+                                    ?>
+                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                                    </form>
+                                    <?php
+                                }
+                            }
+
+                            $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
+                            VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
+
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
