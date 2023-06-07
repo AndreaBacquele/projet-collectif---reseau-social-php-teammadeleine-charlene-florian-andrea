@@ -36,6 +36,7 @@
                         (n° <?php echo $userId ?>)
                         
                         <?php
+                        // Permet d'afficher le bouton abonnement si on est sur un mur utilisateur qui n'est pas le nôtre
                         if ($_SESSION['connected_id']!= $userId){
                             ?>
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
@@ -45,7 +46,12 @@
     
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                                    VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
+                                   
 
+                                   // Requete pour récuperer la correspondance
+            
+          
+                             
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
@@ -54,10 +60,6 @@
                             <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
                             <?php
                         }
-                        // else 
-                        // {
-                        //     echo "Vous êtes déja abonné"
-                        // }
                     }
                     
                         ?>    
@@ -71,7 +73,6 @@
                     if ($enCoursDeTraitement)
                     {
                         // echo "<pre>" . print_r($_POST, 1) . "</pre>";
-                        // et complétez le code ci dessous en remplaçant les ???
                         $postContent = $_POST['new_post'];
 
 
