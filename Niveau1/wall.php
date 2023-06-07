@@ -45,8 +45,7 @@
     
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                                    VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
-                        
-                             
+
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
@@ -61,25 +60,8 @@
                         // }
                     }
                     
-                            ?>    
-                        <?php
+                        ?>    
                         
-                        ?>
-                        <?php
-                        if($_SESSION['connected_id'] == $userId){
-                            ?>
-                            <article>
-                                <form action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>" method="post">
-                                    <dl>
-                                        <dt><label for="new_post">Avez-vous quelque chose à dire ?</label></dt>
-                                        <dd><textarea name="new_post"></textarea></dd>
-                                    </dl>
-                                    <button type="submit" id="submit_form">Poster</button>
-                                </form>
-                            </article>
-                            <?php
-                        }
-                        ?>
                         </p>
                 </section>
             </aside>
@@ -107,15 +89,8 @@
                                 . "NULL);";
                         // Etape 5 : execution
                         $ok = $mysqli->query($lInstructionSql);
-                        if ( ! $ok)
-                        {
-                            echo "Impossible d'ajouter le message: " . $mysqli->error;
-                        } else
-                        {
-                             echo "Message posté en tant que :" . $listAuteurs[$authorId];
-                        }
-                     }
-                    // 
+                        header("Location: news.php");
+                    }
                     ?>  
                 <?php
                 /**
@@ -139,10 +114,26 @@
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }
+                ?>
 
-                /**
-                 * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
-                 */
+                <?php
+                        if($_SESSION['connected_id'] == $userId){
+                            ?>
+                            <article>
+                                <form action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>" method="post">
+                                    <dl>
+                                        <dt><label for="new_post">Avez-vous quelque chose à dire ?</label></dt>
+                                        <dd><br>
+                                            <textarea name="new_post"></textarea>
+                                        </dd>
+                                    </dl>
+                                    <button type="submit" id="submit_form">Poster</button>
+                                </form>
+                            </article>
+                            <?php
+                        }
+                        ?>
+                        <?php
                 while ($post = $lesInformations->fetch_assoc())
                 {
                     include 'message.php';            
