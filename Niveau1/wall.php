@@ -45,7 +45,7 @@
                             WHERE following_user_id = " . $_SESSION['connected_id'] . "";
 
                             $lesIdDesAbos = $mysqli->query($aboCheck);
-                            // echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
+                            
                             if ($lesIdDesAbos -> {"num_rows"} === 0)
                             {
                                 ?>
@@ -54,14 +54,17 @@
                                     </form>
                                 <?php
                             }
-
+                            $check = 0;
                             while ($id = $lesIdDesAbos->fetch_assoc())
                             {
-                                if($user['id'] == $id['followed_user_id']){
+                                echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
+                                if($user['id'] == $id['followed_user_id'] AND $check == 0){
+                                    $check = 1;
                                     ?>
-                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                                        <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
                                     <?php
-                                }else{
+                                }else if($check ==0){
+                                    $check = 1;
                                     ?>
                                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
                                         <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
@@ -73,16 +76,12 @@
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                             VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
 
-                        if (isset($_POST['boutonAbo']))
-                        {
-                            $abo = $mysqli->query($connexionAbonnement);
-                            echo "Vous êtes abonné à : " . $user['alias'];
-                            ?>
-                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
-                            <?php
-                        }
+                            if (isset($_POST['boutonAbo']))
+                            {
+                                $abo = $mysqli->query($connexionAbonnement);
+                                echo "Vous êtes abonné à : " . $user['alias'];
+                            }
                     }
-                    
                         ?>    
                         
                         </p>
