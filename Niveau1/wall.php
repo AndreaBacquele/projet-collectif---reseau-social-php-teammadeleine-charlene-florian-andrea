@@ -56,9 +56,9 @@
                         (n° <?php echo $userId ?>)
                         
                         <?php
-                        // Permet d'afficher le bouton abonnement si on est sur un mur utilisateur qui n'est pas le nôtre
+                        
                         if ($_SESSION['connected_id']!= $userId){
-
+                        
                             $aboCheck = "SELECT followers.followed_user_id
                             FROM followers
                             WHERE following_user_id = " . $_SESSION['connected_id'] . "
@@ -69,40 +69,38 @@
                             if ($lesIdDesAbos -> {"num_rows"} === 1)
                             {
                             ?>
-                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                                <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner">
+                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>"><br></br>
+                                <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner"><br></br>
                             <?php
+                             echo "Vous êtes abonné à : " . $user['alias'];
                             }
                             else
                             {
                             ?>
-                                <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
-                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                                <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>"><br></br>
+                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner"><br></br>
                                 </form>
                             <?php
                             }
 
-
+                            // Requête pour l'abonnement et le désabonnement, insérent ou suppriment du contenu de la table followers
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                             VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
 
                             $desabonnement = "DELETE FROM followers WHERE following_user_id = ".$_SESSION['connected_id']." AND followed_user_id = '".$userId."'";
-
+                            
+                            // Action si on appuie sur le boutonAbo ou boutonDesabo (donc pour s'abonner ou se désabonner)
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
-                            echo "Vous êtes abonné à : " . $user['alias'];
-                
+                            header("Location: wall.php?user_id=" . $user['id']);                
                         }
                         if (isset($_POST['boutonDesabo']))
                         {
                             $desabo = $mysqli->query($desabonnement);
-                            echo "Vous vous êtes desabonné de : " . $user['alias'];
-                        
+                            header("Location: wall.php?user_id=" . $user['id']);
                         }
                     }
-                        
-                    
                         ?>    
                         
                         </p>
