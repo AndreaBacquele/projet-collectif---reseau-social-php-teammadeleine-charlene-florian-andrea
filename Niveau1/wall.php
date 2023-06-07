@@ -69,7 +69,8 @@
                             if ($lesIdDesAbos -> {"num_rows"} === 1)
                             {
                             ?>
-                                <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner">
                             <?php
                             }
                             else
