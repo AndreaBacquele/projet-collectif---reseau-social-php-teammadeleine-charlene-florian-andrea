@@ -59,7 +59,8 @@
                             {
                                 if($user['id'] == $id['followed_user_id']){
                                     ?>
-                                    <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>">
+                                    <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner">
                                     <?php
                                 }else{
                                     ?>
@@ -73,6 +74,8 @@
                             $connexionAbonnement = 'INSERT INTO followers (id, followed_user_id, following_user_id)
                             VALUES(NULL, "'.$userId.'" ,"'.$_SESSION['connected_id'].'")';
 
+                            $desabonnement = "DELETE FROM followers WHERE following_user_id = ".$_SESSION['connected_id']." AND followed_user_id = '".$userId."'";
+
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
@@ -81,7 +84,16 @@
                             <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
                             <?php
                         }
+                        if (isset($_POST['boutonDesabo']))
+                        {
+                            $desabo = $mysqli->query($desabonnement);
+                            echo "Vous vous êtes desabonné de : " . $user['alias'];
+                            ?>
+                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
+                            <?php
+                        }
                     }
+                        
                     
                         ?>    
                         
