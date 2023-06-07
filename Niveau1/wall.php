@@ -57,7 +57,7 @@
                             $check = 0;
                             while ($id = $lesIdDesAbos->fetch_assoc())
                             {
-                                echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
+                                // echo "<pre>" . print_r($lesIdDesAbos, 1) . "</pre>";
                                 if($user['id'] == $id['followed_user_id'] AND $check == 0){
                                     $check = 1;
                                     ?>
@@ -83,17 +83,13 @@
                         {
                             $abo = $mysqli->query($connexionAbonnement);
                             echo "Vous êtes abonné à : " . $user['alias'];
-                            ?>
-                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
-                            <?php
+                
                         }
                         if (isset($_POST['boutonDesabo']))
                         {
                             $desabo = $mysqli->query($desabonnement);
                             echo "Vous vous êtes desabonné de : " . $user['alias'];
-                            ?>
-                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner">
-                            <?php
+                        
                         }
                     }
                         
