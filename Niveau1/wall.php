@@ -51,8 +51,16 @@
                         {
                             $abo = $mysqli->query($connexionAbonnement);
                             echo "Vous êtes abonné à : " . $user['alias'];
-                        } 
+                            ?>
+                            <input type ="submit" id="boutonAbo" name="boutonAbo" value ="Se désabonner">
+                            <?php
+                        }
+                        // else 
+                        // {
+                        //     echo "Vous êtes déja abonné"
+                        // }
                     }
+                    
                             ?>    
                         <?php
                         
