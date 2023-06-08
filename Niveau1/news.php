@@ -8,7 +8,7 @@
     </head>
     <body>
     <header>
-        <a href='admin.php'><img src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/></a>
+        <a href='admin.php'><img id="madeli" src="images/madeleine_pdp.png" alt="Logo de notre réseau social"/></a>
             <?php include 'header.php';
         ?>
         </header>
