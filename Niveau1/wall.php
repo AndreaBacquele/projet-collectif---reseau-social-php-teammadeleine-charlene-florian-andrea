@@ -91,20 +91,15 @@
                         if (isset($_POST['boutonAbo']))
                         {
                             $abo = $mysqli->query($connexionAbonnement);
-                            echo "Vous êtes abonné à : " . $user['alias'];
-                
+                            echo "Vous êtes abonné à : " . $user['alias'];                
                         }
                         if (isset($_POST['boutonDesabo']))
                         {
                             $desabo = $mysqli->query($desabonnement);
                             echo "Vous vous êtes desabonné de : " . $user['alias'];
-                        
                         }
                     }
-                        
-                    
-                        ?>    
-                        
+                        ?>
                         </p>
                 </section>
             </aside>
