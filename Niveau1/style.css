@@ -495,3 +495,13 @@ body>header #user>a img{
 
 /* image pdp profil */
 
+#pdp{
+    width: 45%;
+    padding-right: 5em;
+}
+
+/* text login */
+
+#pdp_text{
+    text-align: center;
+}

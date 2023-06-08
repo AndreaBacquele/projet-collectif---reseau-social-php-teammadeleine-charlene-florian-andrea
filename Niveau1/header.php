@@ -35,7 +35,7 @@
                     
                 </nav>
                 <nav id="user">
-                    <a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="pdp" src="images/pdp.png"/></a>
+                    <a title="Profil" href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="pdp" src="images/pdp.png"/></a>
                     <ul>
                         <li><a title="Paramètres" href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="sett" src="images/settings.png"/></a></li>
                         <li><a title="Mes abonnés" href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="abo" src="images/followed.png"/></a></li>
@@ -49,13 +49,13 @@
                 } else if (! isset($_SESSION['connected_id'])){
                     ?>
                         <div id="pdp" id="login_msg">
-                            <h3>Veuillez créer un compte ou vous connecter pour accéder aux differentes fonctionnalitées !</h3>
+                            <h3 id="pdp_text">Veuillez créer un compte ou vous connecter pour accéder aux differentes fonctionnalitées !</h3>
                         </div>
                         <nav id="user">
-                            <a href="#">Profil</a>
+                            <a title="Profil" href="#"><img id="pdp" src="images/pdp.png"></a>
                             <ul>
-                        <li><a href="login.php">Log In</a></li>
-                        <li><a href="registration.php">Sign In</a></li>
+                        <li><a href="login.php"><img id="sett" title="Se connecter" src="images/log_in.png"/></a></li>
+                        <li><a href="registration.php"><img id="sett" title="S'inscrire" src="images/sign_in.png"/></a></li>
                         <?php
                         if($_SERVER['PHP_SELF'] === "/resoc_n1/Niveau1/registration.php" || $_SERVER['PHP_SELF'] === "/resoc_n1/Niveau1/login.php") {
                         } else {

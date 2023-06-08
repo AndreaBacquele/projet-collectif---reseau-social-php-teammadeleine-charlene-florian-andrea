@@ -72,11 +72,11 @@
                         <input type='hidden'name='???' value='achanger'>
                         <dl>
                             <dt><label for='email'>E-Mail</label></dt>
-                            <dd><input type='email'name='email'></dd>
+                            <dd><input id="text" type='email'name='email'></dd>
                             <dt><label for='motpasse'>Mot de passe</label></dt>
-                            <dd><input type='password'name='motpasse'></dd>
+                            <dd><input id="text" type='password'name='motpasse'></dd>
                         </dl>
-                        <input type='submit'>
+                        <input id="auteur" type='submit'>
                     </form>
                     <p>
                         <br>

@@ -16,8 +16,8 @@
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
-                <p>Bienvenu sur notre réseau social.</p>
+                <h2 id="pres_amongus">Présentation</h2>
+                <p id="pres_para">Bienvenu sur notre réseau social.</p>
             </aside>
             <main>
                 <article>
@@ -65,13 +65,13 @@
                         <input type='hidden'name='???' value='achanger'>
                         <dl>
                             <dt><label for='pseudo'>Pseudo</label></dt>
-                            <dd><input type='text'name='pseudo'></dd>
+                            <dd><input id="text" type='text'name='pseudo'></dd>
                             <dt><label for='email'>E-Mail</label></dt>
-                            <dd><input type='email'name='email'></dd>
+                            <dd><input id="text" type='email'name='email'></dd>
                             <dt><label for='motpasse'>Mot de passe</label></dt>
-                            <dd><input type='password'name='motpasse'></dd>
+                            <dd><input id="text" type='password'name='motpasse'></dd>
                         </dl>
-                        <input type='submit'>
+                        <input id="auteur" type='submit'>
                     </form>
                 </article>
             </main>
