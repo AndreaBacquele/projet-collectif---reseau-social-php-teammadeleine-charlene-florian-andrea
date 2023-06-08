@@ -12,7 +12,7 @@
                 <nav id="menu">
                     <a title="Actualités" href="news.php"><img src="images/news.png"/></a>
                     <a title="Mur"  href="wall.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img src="images/wall.png"/></a>
-                    <a title="Flux" href="feed.php?user_id=5"><img src="images/feed.png"/></a>
+                    <a title="Flux" href="feed.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img src="images/feed.png"/></a>
                     <a title="Among us" href="usurpedpost.php"><img src="images/among_us.png"/></a>
                     <div id="tags">
                         <a title="Mots-clés" id="nomtag" href="tags.php?tag_id=1"><img src="images/tag.png"/></a>
