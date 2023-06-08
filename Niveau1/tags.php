@@ -37,8 +37,8 @@
                 ?>
                 <img src="images/madeleines.png" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez les derniers messages comportant
+                    <h3 id="pres">Présentation</h3>
+                    <p id="pres_para">Sur cette page vous trouverez les derniers messages comportant
                         le mot-clé <?php echo $tag['label'] ?>
                         (n° <?php echo $tagId ?>)
                     </p>

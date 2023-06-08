@@ -16,8 +16,8 @@
             <aside>
                 <img src="images/madeleines.png" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez la liste des personnes dont
+                    <h3 id="pres">Présentation</h3>
+                    <p id="pres_para">Sur cette page vous trouverez la liste des personnes dont
                         l'utilisatrice
                         n° <?php echo intval($_GET['user_id']) ?>
                         suit les messages

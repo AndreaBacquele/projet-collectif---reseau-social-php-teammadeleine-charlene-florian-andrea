@@ -16,8 +16,8 @@
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
-                <p>Sur cette page on peut poster un message en se faisant 
+                <h2 id="pres_amongus">Présentation</h2>
+                <p id="pres_para">Sur cette page on peut poster un message en se faisant 
                     passer pour quelqu'un d'autre</p>
             </aside>
             <main>
@@ -87,7 +87,7 @@
                                     ?>
                                 </select></dd>
                             <dt><label for='message'>Message</label></dt>
-                            <dd><textarea name='message'></textarea></dd>
+                            <dd><textarea id="text" name='message'></textarea></dd>
                         </dl>
                         <input type='submit'>
                     </form>               

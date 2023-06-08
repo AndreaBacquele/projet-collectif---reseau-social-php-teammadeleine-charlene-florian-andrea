@@ -17,8 +17,8 @@
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
-                <p>Bienvenu sur notre réseau social.</p>
+                <h2 id="pres_amongus">Présentation</h2>
+                <p id="pres_para">Bienvenu sur notre réseau social.</p>
             </aside>
             <main>
                 <article>

@@ -39,8 +39,8 @@
                 ?>
                 <img src="images/madeleines.png" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez tous les message des utilisatrices
+                    <h3 id="pres">Présentation</h3>
+                    <p id="pres_para">Sur cette page vous trouverez tous les message des utilisatrices
                         auxquel est abonnée l'utilisatrice <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
                     </p>

@@ -1,5 +1,5 @@
 <article>
-    <h3>
+    <h3 id="date">
         <time datetime='2020-02-01 11:12:13' ><?php echo $post['created'] ?></time>
     </h3>
         <address>par <a href="wall.php?user_id=<?php echo $post['id']?>"><?php echo $post['author_name'] ?></a></address>

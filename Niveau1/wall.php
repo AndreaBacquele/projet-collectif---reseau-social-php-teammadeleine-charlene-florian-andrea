@@ -51,8 +51,8 @@
                 ?>
                 <img src="images/madeleines.png" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
-                    <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
+                    <h3 id="pres">Présentation</h3>
+                    <p id="pres_para">Sur cette page vous trouverez tous les message de l'utilisatrice : <a href="wall.php?user_id=<?php echo $user['id']?>"><?php echo $user['alias'] ?></a>
                         (n° <?php echo $userId ?>)
                         
                         <?php
@@ -139,9 +139,9 @@
                             <article>
                                 <form action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>" method="post">
                                     <dl>
-                                        <dt><label for="new_post">Avez-vous quelque chose à dire ?</label></dt>
+                                        <dt id="text_titre"><label  for="new_post">Avez-vous quelque chose à dire ?</label></dt>
                                         <dd><br>
-                                            <textarea name="new_post"></textarea>
+                                            <textarea id="text" name="new_post"></textarea>
                                         </dd>
                                     </dl>
                                     <button type="submit" id="submit_form">Poster</button>
