@@ -63,10 +63,9 @@ body>header #user {
 }
 
 body>header #user>a {
-    display: block;
-    text-align: center;
+    display: block; 
     padding: 2em 0;
-    width: 100%;
+
 }
 
 body>header #user ul {
@@ -368,6 +367,13 @@ body>header #login_msg{
     margin-left: 3.3em;
 }
 
+body>header #user>a img{
+    width: 40%;
+    margin-top: -6em;
+    margin-bottom: -1em;
+    margin-left: 2em;
+}
+
 /* modif box presentation (a droite)*/
 
 #pres{
@@ -416,3 +422,76 @@ body>header #login_msg{
     margin-top: -0.8em;
     margin-left: 18em;
 }
+
+/* bouton abo desabo */
+
+#boutonDesabo{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px; 
+    margin-left: 4.3em;
+}
+
+#boutonAbo{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px; 
+    margin-left: 5.5em;
+}
+
+/* text 'vous êtes abonné à : xxx */
+
+#abonné{
+    background-color: #ffd1a4;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* modif bouton poster dans wall */
+
+#poster{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px; 
+    margin-left: 23.5em;
+}
+
+/* bouton 'auteur' de amongus */
+
+#auteur{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* bouton 'allez sur le mur' */
+
+#profil{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#user_name{
+    background-color: rgb(59, 29, 0) ;
+    color: #ffd1a4;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/* image pdp profil */
+

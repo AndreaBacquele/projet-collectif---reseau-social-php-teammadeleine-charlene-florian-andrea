@@ -35,7 +35,7 @@
                     
                 </nav>
                 <nav id="user">
-                    <a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>">Profil</a>
+                    <a href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="pdp" src="images/pdp.png"/></a>
                     <ul>
                         <li><a title="Paramètres" href="settings.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="sett" src="images/settings.png"/></a></li>
                         <li><a title="Mes abonnés" href="followers.php?user_id=<?php echo $_SESSION['connected_id'] ?>"><img id="abo" src="images/followed.png"/></a></li>
@@ -48,7 +48,7 @@
                 <?php
                 } else if (! isset($_SESSION['connected_id'])){
                     ?>
-                        <div id="login_msg">
+                        <div id="pdp" id="login_msg">
                             <h3>Veuillez créer un compte ou vous connecter pour accéder aux differentes fonctionnalitées !</h3>
                         </div>
                         <nav id="user">

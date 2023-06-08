@@ -80,7 +80,7 @@
                         <input type='hidden' name='???' value='achanger'>
                         <dl>
                             <dt><label for='auteur'>Auteur</label></dt>
-                            <dd><select name='auteur'>
+                            <dd><select id="auteur" name='auteur'>
                                     <?php
                                     foreach ($listAuteurs as $id => $alias)
                                         echo "<option value='$id'>$alias</option>";
@@ -89,7 +89,7 @@
                             <dt><label for='message'>Message</label></dt>
                             <dd><textarea id="text" name='message'></textarea></dd>
                         </dl>
-                        <input type='submit'>
+                        <input id="auteur" type='submit'>
                     </form>               
                 </article>
             </main>

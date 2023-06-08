@@ -71,12 +71,15 @@
                             ?>
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>"><br></br>
                                 <input type ="submit" id="boutonDesabo" name="boutonDesabo" value ="Se désabonner"><br></br>
+                            <p id="abonné">
                             <?php
                              echo "Vous êtes abonné à : " . $user['alias'];
                             }
                             else
                             {
                             ?>
+                            </p>
+                            
                                 <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?" . $_SERVER['QUERY_STRING']?>"><br></br>
                                     <input type ="submit" id="boutonAbo" name="boutonAbo" value ="S'abonner"><br></br>
                                 </form>
@@ -144,7 +147,7 @@
                                             <textarea id="text" name="new_post"></textarea>
                                         </dd>
                                     </dl>
-                                    <button type="submit" id="submit_form">Poster</button>
+                                    <button id="poster" type="submit" id="submit_form">Poster</button>
                                 </form>
                             </article>
                             <?php
